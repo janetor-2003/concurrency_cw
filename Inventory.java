@@ -1,18 +1,17 @@
 public class Inventory {
     private int numberOfItems = 0;
 
-    public void addItem()
-    {
-        numberOfItems += 1;
+    public synchronized void addItem() {
+        numberOfItems++;
+        System.out.println("Added. Inventory size = " + this.getNumberOfItems());
     }
 
-    public void removeItem()
-    {
-        numberOfItems -= 1;
+    public synchronized void removeItem() {
+        numberOfItems--;
+        System.out.println("Removed. Inventory size = " + this.getNumberOfItems());
     }
 
-    public int getNumberOfItems()
-    {
+    public synchronized int getNumberOfItems() {
         return numberOfItems;
     }
 }
